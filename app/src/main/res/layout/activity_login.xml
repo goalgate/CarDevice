@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.cardevice.ui.login.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="111px"
+            android:layout_marginTop="236.62px"
+            android:layout_marginRight="40px"
+            android:background="@null"
+            android:hint="请输入登录账号"
+            android:inputType="text"
+            android:maxLines="1"
+            android:text="@={viewModel.userName}"
+            binding:onFocusChangeCommand="@{viewModel.onFocusChangeCommand}" />
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110px"
+            android:layout_marginTop="338.04px"
+            android:layout_marginRight="10px"
+            android:background="@null"
+            android:hint="请输入登录密码"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:text="@={viewModel.password}" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="235px"
+            android:layout_marginRight="40px"
+            android:padding="6dp"
+            android:src="@mipmap/clean_edit"
+            android:visibility="@{viewModel.clearBtnVisibility}"
+            binding:onClickCommand="@{viewModel.clearUserNameOnClickCommand}" />
+
+        <ImageView
+            android:id="@+id/iv_swich_passwrod"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="335px"
+            android:layout_marginRight="40px"
+            android:padding="6dp"
+            android:src="@mipmap/show_psw_press"
+            binding:onClickCommand="@{viewModel.passwordShowSwitchOnClickCommand}" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="471.47px"
+            android:background="@drawable/selector_dl"
+            binding:onClickCommand="@{viewModel.loginOnClickCommand}" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60px"
+            android:text="@={viewModel.macId}"
+            binding:onClickCommand="@{viewModel.ServerEditCommand}" />
+
+    </RelativeLayout>
+
+
+</layout>

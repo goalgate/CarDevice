@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cardevice.ui.xungengic.XunGengMainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layour_fun"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y20"
+            android:background="@color/main_background"
+            android:layout_alignParentTop="true">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y50"
+                android:layout_marginLeft="@dimen/x27"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/des_countDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:textSize="24px"
+                    android:text="下次巡更倒计时"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_countDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24px">
+
+                </TextView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 消息未上传"
+                android:textColor="#ee5656"
+                android:layout_marginTop="@dimen/y50"
+                android:layout_marginRight="@dimen/x27"
+                android:layout_alignParentRight="true"
+                android:textSize="24px"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/touxiang"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y113"/>
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:textSize="28px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y195"
+            android:gravity="center"
+            android:text="@={viewModel.userName}"
+            android:layout_marginLeft="@dimen/x27"
+            android:layout_marginRight="@dimen/x27"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x27"
+            android:layout_marginRight="@dimen/x27"
+            android:layout_marginTop="@dimen/y255">
+
+            <Button
+                android:id="@+id/btn_BigWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/y20"
+                android:background="@drawable/selector_light"
+                android:onClick="@{viewModel.lightUpDown}" />
+
+
+            <Button
+                android:id="@+id/btn_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_user"
+                binding:onClickCommand="@{viewModel.changePerson}" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24px"
+            android:layout_marginBottom="@dimen/y30"
+            android:layout_marginLeft="@dimen/x69"
+            android:layout_marginRight="@dimen/x75"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+
+            android:text="@={viewModel.tv_info}"
+
+         />
+    </RelativeLayout>
+</layout>
