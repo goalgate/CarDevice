@@ -1,9 +1,6 @@
 package com.example.cardevice.app;
 
 import android.content.Context;
-
-import androidx.multidex.MultiDex;
-
 import com.example.cardevice.BuildConfig;
 import com.example.cardevice.R;
 import com.example.cardevice.ui.login.LoginActivity;
@@ -37,8 +34,6 @@ public class AppInit extends BaseApplication {
 
         //是否开启打印日志
         KLog.init(BuildConfig.DEBUG);
-
-        MultiDex.install(this);
 
         //初始化全局异常崩溃
         initCrash();
