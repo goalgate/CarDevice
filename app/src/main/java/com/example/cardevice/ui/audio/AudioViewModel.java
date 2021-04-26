@@ -4,16 +4,9 @@ import android.app.Application;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
-
-import com.example.cardevice.app.AppInit;
-import com.example.cardevice.entity.OfflineXGData;
-
 import java.io.IOException;
-import java.util.List;
-
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
