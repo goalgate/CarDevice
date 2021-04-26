@@ -4,18 +4,19 @@ import android.app.Application;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 
+import com.example.cardevice.app.AppInit;
+import com.example.cardevice.entity.OfflineXGData;
+
 import java.io.IOException;
+import java.util.List;
 
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
-import me.goldze.mvvmhabit.binding.command.BindingConsumer;
 import me.goldze.mvvmhabit.utils.KLog;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
@@ -23,7 +24,7 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
  * @author Created by WZW on 2021-04-23 14:31.
  * @description
  */
-public class AudioViewModel extends BaseViewModel implements MyAudioManager.AudioListener{
+public class AudioViewModel extends BaseViewModel implements MyAudioManager.AudioListener {
 
     public ObservableField<String> playMusic = new ObservableField<>("");
 
@@ -80,7 +81,6 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
     }
 
 
-
     private void initMediaPlayer() {
         try {
             AssetFileDescriptor descriptor = getApplication().getAssets().openFd("canon.mp3");
@@ -100,7 +100,7 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
 
     private void startPlay() {
         int result = MyAudioManager.requestAudioFocus(this);
-        KLog.e("AudioManager", "requestAudioFocusResult = " + result);
+        KLog.e("audioManager", "requestAudioFocusResult = " + result);
         if (result != 1) {
             return;
         }
@@ -112,8 +112,6 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
     }
 
 
-
-
     private void pausePlay() {
         if (mMediaPlayer != null) {
             status = 3;
@@ -121,8 +119,6 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
             playMusic.set("播放音乐");
         }
     }
-
-
 
 
     private void releasePlay() {
@@ -134,8 +130,6 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
     }
 
 
-
-
     @Override
     public void audioStart() {
         if (status == 1 || status == 3) {
@@ -144,18 +138,12 @@ public class AudioViewModel extends BaseViewModel implements MyAudioManager.Audi
     }
 
 
-
-
     @Override
     public void audioPause() {
         if (status == 2) {
             pausePlay();
         }
     }
-
-
-
-
 
 
 }

@@ -24,9 +24,7 @@ import com.example.cardevice.R;
 import com.example.cardevice.app.AppViewModelFactory;
 import com.example.cardevice.databinding.ActivityLoginBinding;
 import com.example.cardevice.utils.ByteTools;
-import com.example.cardevice.utils.NetInfo;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-
 import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.base.BaseActivity;
 import me.goldze.mvvmhabit.utils.SPUtils;

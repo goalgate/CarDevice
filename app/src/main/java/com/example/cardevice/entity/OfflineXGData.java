@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
  * @description
  */
 
-@Entity
+@Entity(tableName = "offlinexg")
 public class OfflineXGData {
 
     @PrimaryKey(autoGenerate = true)
@@ -18,15 +18,21 @@ public class OfflineXGData {
     @ColumnInfo(name = "method")
     private String method;
 
-    @ColumnInfo(name = "content")
-    private String content;
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @ColumnInfo(name = "content")
+    private String content;
+
+
+    public OfflineXGData(String method, String content) {
+        this.method = method;
+        this.content = content;
     }
 
     public String getMethod() {

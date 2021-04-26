@@ -1,6 +1,9 @@
 package com.example.cardevice.app;
 
 import android.content.Context;
+
+import androidx.room.Room;
+
 import com.example.cardevice.BuildConfig;
 import com.example.cardevice.R;
 import com.example.cardevice.ui.login.LoginActivity;
@@ -26,6 +29,8 @@ public class AppInit extends BaseApplication {
         return getInstance().getApplicationContext();
     }
 
+    private AppDatabase mAppDatabase;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -41,6 +46,14 @@ public class AppInit extends BaseApplication {
         if (!LeakCanary.isInAnalyzerProcess(this)) {
             LeakCanary.install(this);
         }
+
+        mAppDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "android_room_dev.db")
+                .allowMainThreadQueries()
+                .build();
+    }
+
+    public AppDatabase getAppDatabase() {
+        return mAppDatabase;
     }
 
     private void initCrash() {

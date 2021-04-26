@@ -22,7 +22,7 @@ public interface OfflineXGDao {
 
 
     @Insert
-    void insertOfflineData(OfflineXGData... offlineXGData);
+    void insert(OfflineXGData... offlineXGData);
 
     @Update
     void update(OfflineXGData... offlineXGData);
@@ -30,11 +30,11 @@ public interface OfflineXGDao {
     @Delete
     void delete(OfflineXGData... offlineXGData);
 
-    @Query("DELETE FROM OfflineXGData")
+    @Query("DELETE FROM offlinexg")
     void deleteAll();
 
-    @Query("SELECT * FROM OfflineXGData ORDER BY ID DESC")
-    LiveData<List<OfflineXGData>> getAll();
+    @Query("SELECT * FROM offlinexg ORDER BY ID DESC")
+    List<OfflineXGData> getAll();
 
 
 }
